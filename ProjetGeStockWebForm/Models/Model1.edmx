@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bdStockMGL2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Approvisionnement">
+          <Key>
+            <PropertyRef Name="idApp" />
+          </Key>
+          <Property Name="idApp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idP" Type="int" />
+          <Property Name="qteApp" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="dateApp" Type="date" Nullable="false" />
+          <Property Name="datePeremption" Type="date" Nullable="false" />
+          <Property Name="remise" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="idF" Type="int" />
+          <Property Name="puF" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="idCat" />
+          </Key>
+          <Property Name="idCat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomCat" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="idF" />
+          </Key>
+          <Property Name="idF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomF" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="telF" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="codeF" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LigneVente">
+          <Key>
+            <PropertyRef Name="idLV" />
+          </Key>
+          <Property Name="idLV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idV" Type="int" Nullable="false" />
+          <Property Name="qte" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="puV" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="idApp" Type="int" Nullable="false" />
+          <Property Name="idP" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="idP" />
+          </Key>
+          <Property Name="idP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomP" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="descriptionP" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="qteP" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="qteSeuil" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pu" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="idCat" Type="int" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="idV" />
+          </Key>
+          <Property Name="idV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateV" Type="date" Nullable="false" />
+          <Property Name="idClient" Type="int" />
+        </EntityType>
+        <EntityContainer Name="bdStockMGL2021ModelStoreContainer">
+          <EntitySet Name="Approvisionnement" EntityType="Self.Approvisionnement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LigneVente" EntityType="Self.LigneVente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vente" EntityType="Self.Vente" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdStockMGL2021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Approvisionnement">
+          <Key>
+            <PropertyRef Name="idApp" />
+          </Key>
+          <Property Name="idApp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idP" Type="Int32" />
+          <Property Name="qteApp" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="dateApp" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="datePeremption" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="remise" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="idF" Type="Int32" />
+          <Property Name="puF" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="idCat" />
+          </Key>
+          <Property Name="idCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomCat" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="idF" />
+          </Key>
+          <Property Name="idF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomF" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telF" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codeF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LigneVente">
+          <Key>
+            <PropertyRef Name="idLV" />
+          </Key>
+          <Property Name="idLV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idV" Type="Int32" Nullable="false" />
+          <Property Name="qte" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="puV" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="idApp" Type="Int32" Nullable="false" />
+          <Property Name="idP" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="idP" />
+          </Key>
+          <Property Name="idP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomP" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descriptionP" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="qteP" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="qteSeuil" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="pu" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="idCat" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vente">
+          <Key>
+            <PropertyRef Name="idV" />
+          </Key>
+          <Property Name="idV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateV" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idClient" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="bdStockMGL2021Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Approvisionnement" EntityType="Self.Approvisionnement" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" />
+          <EntitySet Name="LigneVente" EntityType="Self.LigneVente" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" />
+          <EntitySet Name="Vente" EntityType="Self.Vente" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdStockMGL2021ModelStoreContainer" CdmEntityContainer="bdStockMGL2021Entities">
+          <EntitySetMapping Name="Approvisionnement">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.Approvisionnement">
+              <MappingFragment StoreEntitySet="Approvisionnement">
+                <ScalarProperty Name="idApp" ColumnName="idApp" />
+                <ScalarProperty Name="idP" ColumnName="idP" />
+                <ScalarProperty Name="qteApp" ColumnName="qteApp" />
+                <ScalarProperty Name="dateApp" ColumnName="dateApp" />
+                <ScalarProperty Name="datePeremption" ColumnName="datePeremption" />
+                <ScalarProperty Name="remise" ColumnName="remise" />
+                <ScalarProperty Name="idF" ColumnName="idF" />
+                <ScalarProperty Name="puF" ColumnName="puF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="idCat" ColumnName="idCat" />
+                <ScalarProperty Name="nomCat" ColumnName="nomCat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseur">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.Fournisseur">
+              <MappingFragment StoreEntitySet="Fournisseur">
+                <ScalarProperty Name="idF" ColumnName="idF" />
+                <ScalarProperty Name="nomF" ColumnName="nomF" />
+                <ScalarProperty Name="telF" ColumnName="telF" />
+                <ScalarProperty Name="codeF" ColumnName="codeF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LigneVente">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.LigneVente">
+              <MappingFragment StoreEntitySet="LigneVente">
+                <ScalarProperty Name="idLV" ColumnName="idLV" />
+                <ScalarProperty Name="idV" ColumnName="idV" />
+                <ScalarProperty Name="qte" ColumnName="qte" />
+                <ScalarProperty Name="puV" ColumnName="puV" />
+                <ScalarProperty Name="idApp" ColumnName="idApp" />
+                <ScalarProperty Name="idP" ColumnName="idP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produit">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.Produit">
+              <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="idP" ColumnName="idP" />
+                <ScalarProperty Name="nomP" ColumnName="nomP" />
+                <ScalarProperty Name="descriptionP" ColumnName="descriptionP" />
+                <ScalarProperty Name="qteP" ColumnName="qteP" />
+                <ScalarProperty Name="qteSeuil" ColumnName="qteSeuil" />
+                <ScalarProperty Name="pu" ColumnName="pu" />
+                <ScalarProperty Name="idCat" ColumnName="idCat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vente">
+            <EntityTypeMapping TypeName="bdStockMGL2021Model.Vente">
+              <MappingFragment StoreEntitySet="Vente">
+                <ScalarProperty Name="idV" ColumnName="idV" />
+                <ScalarProperty Name="dateV" ColumnName="dateV" />
+                <ScalarProperty Name="idClient" ColumnName="idClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
