@@ -34,22 +34,27 @@
                 </div>
             </div>
             <div class="form-group col-12 mg-b-5">
-                <div class="col-md-offset-10 col-md-2">
+                
                     <asp:Button runat="server" ID="btnAjouter" Text="Ajouter" CssClass="btn btn-success" OnClick="btnAjouter_Click" />
+                    <asp:Button runat="server" ID="Button1" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
+                    <asp:Button runat="server" ID="Button2" Text="delete" CssClass="btn btn-danger" OnClick="btnDelete_Click" />
+
+
+                
                 </div>
             </div>
            </div>
            </div>
           <div class="row  ml-2 mr-2">
         <div class="table-responsive">
-            <asp:GridView ID="dgProduit" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-hover">
+            <asp:GridView ID="dgFournisseur" OnSelectedIndexChanged="dgFournisseur_SelectedIndexChanged"  runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-hover">
                 <Columns>
                     <asp:BoundField DataField="idF" HeaderText="ID" />
                     <asp:BoundField DataField="nomF" HeaderText="Nom" />
                     <asp:BoundField DataField="codeF" HeaderText="Code" />
                     <asp:BoundField DataField="telF" HeaderText="Téléphone" />
                     <asp:CommandField ShowSelectButton="True" SelectText="<i class='nav-icon far fa-edit'></i>"
-                        ShowDeleteButton="true" DeleteText="<i class='nav-icon fas fa-trash'></i>" />
+                         />
                 </Columns>
             </asp:GridView> 
                     

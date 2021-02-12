@@ -13,8 +13,8 @@ namespace GestionStock.View
         bdStockMGL2021Entities db = new bdStockMGL2021Entities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            dgProduit.DataSource = db.Fournisseur.ToList();
-            dgProduit.DataBind();
+            dgFournisseur.DataSource = db.Fournisseur.ToList();
+            dgFournisseur.DataBind();
         }
 
         protected void btnAjouter_Click(object sender, EventArgs e)
@@ -25,39 +25,32 @@ namespace GestionStock.View
             p.nomF = txtNomF.Text;
             db.Fournisseur.Add(p);
             db.SaveChanges();
-            Server.Transfer("frmFournissseur.aspx");
+            Server.Transfer("frmFournisseur.aspx");
         }
-        protected void DgProduit_SelectedIndexChanged(object sender, EventArgs e)
+        protected void dgFournisseur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*txtNomP.Text = dgProduit.SelectedRow.Cells[2].Text;
-            txtDescriptionP.Text = dgProduit.SelectedRow.Cells[3].Text;
-            txtQteP.Text = dgProduit.SelectedRow.Cells[4].Text;
-            txtQteSeuilP.Text = dgProduit.SelectedRow.Cells[5].Text;
-            txtPuP.Text = dgProduit.SelectedRow.Cells[6].Text;
-            cbbCategorie.SelectedValue = dgProduit.SelectedRow.Cells[7].Text;*/
+            txtCodeF.Text = dgFournisseur.SelectedRow.Cells[2].Text;
+            txtTelF.Text = dgFournisseur.SelectedRow.Cells[3].Text;
+            txtNomF.Text = dgFournisseur.SelectedRow.Cells[1].Text;
+           
         }
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*int? i = int.Parse(gvTuteur.SelectedRow.Cells[1].Text);
-            Tuteurs t = db.Tuteurs.Find(i);
-            t.NomTuteur = txtNom.Text;
-            t.PrenomTuteur = txtPrenom.Text;
-            t.AdresseTuteur = txtAdresse.Text;
-            t.EmailTuteur = txtEmail.Text;
-            t.TelTuteur = txtTel.Text;
-            t.CiviliteTuteur = txtCivilite.Text;
-            t.Parente = txtParente.Text;
-            t.CNI = txtCNI.Text;
+            int? i = int.Parse(dgFournisseur.SelectedRow.Cells[0].Text);
+            Fournisseur p = db.Fournisseur.Find(i);
+            p.codeF = txtCodeF.Text;
+            p.telF = txtTelF.Text;
+            p.nomF = txtNomF.Text;
             db.SaveChanges();
-            Server.Transfer("~/Inscription/frmTuteur.aspx");*/
+            Server.Transfer("frmFournisseur.aspx");
         }
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            /*int? i = int.Parse(gvTuteur.SelectedRow.Cells[1].Text);
-            Tuteurs t = db.Tuteurs.Find(i);
-            db.Tuteurs.Remove(t);
+            int? i = int.Parse(dgFournisseur.SelectedRow.Cells[0].Text);
+            Fournisseur p = db.Fournisseur.Find(i);
+            db.Fournisseur.Remove(p);
             db.SaveChanges();
-            Server.Transfer("~/Inscription/frmTuteur.aspx");*/
+            Server.Transfer("frmFournisseur.aspx");
         }
     }
 }

@@ -50,14 +50,14 @@
                 </div>
             </div>
             <div class="form-group col-12">
-                <div class="col-md-offset-10 col-md-2">
+                
                     <asp:Button runat="server" ID="btnAjouter" Text="Ajouter" CssClass="btn btn-success" OnClick="btnAjouter_Click" />
                     <asp:Button runat="server" ID="Button1" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
                     <asp:Button runat="server" ID="Button2" Text="Update" CssClass="btn btn-danger" OnClick="btnDelete_Click" />
 
 
 
-                </div>
+               
             </div>
            </div>
           <div class="row  ml-2 mr-2">
