@@ -52,12 +52,17 @@
             <div class="form-group col-12">
                 <div class="col-md-offset-10 col-md-2">
                     <asp:Button runat="server" ID="btnAjouter" Text="Ajouter" CssClass="btn btn-success" OnClick="btnAjouter_Click" />
+                    <asp:Button runat="server" ID="Button1" Text="Update" CssClass="btn btn-info" OnClick="btnUpdate_Click" />
+                    <asp:Button runat="server" ID="Button2" Text="Update" CssClass="btn btn-danger" OnClick="btnDelete_Click" />
+
+
+
                 </div>
             </div>
            </div>
           <div class="row  ml-2 mr-2">
         <div class="table-responsive">
-            <asp:GridView ID="dgProduit" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-hover">
+            <asp:GridView ID="dgProduit" runat="server" OnSelectedIndexChanged="dgProduit_SelectedIndexChanged" AutoGenerateColumns="false" CssClass="table table-bordered table-hover">
                 <Columns>
                     <asp:BoundField DataField="idP" HeaderText="ID" />
                     <asp:BoundField DataField="nomP" HeaderText="Nom" />
@@ -67,7 +72,7 @@
                     <asp:BoundField DataField="pu" HeaderText="Prix unitaire" />
                     <asp:BoundField DataField="idCat" HeaderText="Catégorie" />
                     <asp:CommandField ShowSelectButton="True" SelectText="<i class='nav-icon far fa-edit'></i>"
-                        ShowDeleteButton="true" DeleteText="<i class='nav-icon fas fa-trash'></i>" />
+                         />
                 </Columns>
             </asp:GridView> 
         </div>

@@ -34,37 +34,35 @@ namespace GestionStock.View
             db.SaveChanges();
             Server.Transfer("frmProduit.aspx");
         }
-        protected void DgProduit_SelectedIndexChanged(object sender, EventArgs e)
+        protected void dgProduit_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            txtNomP.Text = dgProduit.SelectedRow.Cells[2].Text;
-            txtDescriptionP.Text = dgProduit.SelectedRow.Cells[3].Text;
-            txtQteP.Text = dgProduit.SelectedRow.Cells[4].Text;
-            txtQteSeuilP.Text = dgProduit.SelectedRow.Cells[5].Text;
-            txtPuP.Text = dgProduit.SelectedRow.Cells[6].Text;
-            cbbCategorie.SelectedValue = dgProduit.SelectedRow.Cells[7].Text;
+            txtNomP.Text = dgProduit.SelectedRow.Cells[1].Text;
+            txtDescriptionP.Text = dgProduit.SelectedRow.Cells[2].Text;
+            txtQteP.Text = dgProduit.SelectedRow.Cells[3].Text;
+            txtQteSeuilP.Text = dgProduit.SelectedRow.Cells[4].Text;
+            txtPuP.Text = dgProduit.SelectedRow.Cells[5].Text;
+            cbbCategorie.SelectedValue = dgProduit.SelectedRow.Cells[6].Text;
         }
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*int? i = int.Parse(gvTuteur.SelectedRow.Cells[1].Text);
-            Tuteurs t = db.Tuteurs.Find(i);
-            t.NomTuteur = txtNom.Text;
-            t.PrenomTuteur = txtPrenom.Text;
-            t.AdresseTuteur = txtAdresse.Text;
-            t.EmailTuteur = txtEmail.Text;
-            t.TelTuteur = txtTel.Text;
-            t.CiviliteTuteur = txtCivilite.Text;
-            t.Parente = txtParente.Text;
-            t.CNI = txtCNI.Text;
+            int? i = int.Parse(dgProduit.SelectedRow.Cells[0].Text);
+            Produit p = db.Produit.Find(i);
+            p.descriptionP = txtDescriptionP.Text;
+            p.idCat = int.Parse(cbbCategorie.SelectedValue.ToString());
+            p.nomP = txtNomP.Text;
+            p.qteP = decimal.Parse(txtQteP.Text);
+            p.qteSeuil = decimal.Parse(txtQteSeuilP.Text);
+            p.pu = decimal.Parse(txtPuP.Text);
             db.SaveChanges();
-            Server.Transfer("~/Inscription/frmTuteur.aspx");*/
+            Server.Transfer("frmProduit.aspx");
         }
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            /*int? i = int.Parse(gvTuteur.SelectedRow.Cells[1].Text);
-            Tuteurs t = db.Tuteurs.Find(i);
-            db.Tuteurs.Remove(t);
+            int? i = int.Parse(dgProduit.SelectedRow.Cells[0].Text);
+            Produit p = db.Produit.Find(i);
+            db.Produit.Remove(p);
             db.SaveChanges();
-            Server.Transfer("~/Inscription/frmTuteur.aspx");*/
+            Server.Transfer("frmProduit.aspx");
         }
     }
 }
